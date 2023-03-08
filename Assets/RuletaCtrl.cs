@@ -24,7 +24,7 @@ public class RuletaCtrl : MonoBehaviour
   {
     if ((timeStop + limit) > Time.time)
     {
-      gameObject.transform.Rotate(new Vector3(0, 0, 1) * speed * Time.deltaTime);
+      gameObject.transform.Rotate(new Vector3(0, 0, 1) * 100f * Time.deltaTime);
     }
   }
 
@@ -52,14 +52,15 @@ public class RuletaCtrl : MonoBehaviour
   public void VerificarRespuesta()
   {
     Debug.Log(gameObject.transform.rotation.eulerAngles.z);
-    if (gameObject.transform.rotation.z < 0 && !colorRed)
+    Debug.Log(gameObject.transform.rotation.z);
+    if (gameObject.transform.rotation.eulerAngles.z < 0 && !colorRed)
     {
       //Es lado azul
       Debug.Log("Azul");
       puntosObtenidos++;
       puntosFinales.text = "Puntos: " + puntosObtenidos;
     }
-    else if (gameObject.transform.rotation.z > 0 && colorRed)
+    else if (gameObject.transform.rotation.eulerAngles.z > 0 && colorRed)
     {
       //Es lado Rojo
       Debug.Log("Rojo");
